@@ -1,16 +1,16 @@
 const path = require('path');
 const Subscription = require(path.join(__dirname, '../models/Subscription'));
-// Create a new subscription
+
+
+
 const createSubscription = async (req, res) => {
   try {
     const subscription = await Subscription.create(req.body);
     res.status(201).json(subscription);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message  });
   }
 };
-
-// Get all subscriptions
 const getAllSubscriptions = async (req, res) => {
   try {
     const subscriptions = await Subscription.find();
@@ -20,7 +20,6 @@ const getAllSubscriptions = async (req, res) => {
   }
 };
 
-// Get single subscription by ID
 const getSubscription = async (req, res) => {
   try {
     const subscription = await Subscription.findById(req.params.id);
